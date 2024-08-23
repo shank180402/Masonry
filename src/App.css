@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin:0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.masonry{
+  display: grid;
+
+  /* grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); */
+  grid-template-columns: repeat(2, 1fr);
+  
+  grid-auto-rows: 10px;
+  grid-auto-flow: dense;
+  
+  gap: 15px;
+  transition: grid-template-columns 0.5s ease-in-out; 
+  
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.item{
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
   display: flex;
-  flex-direction: column;
+  
+ 
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.2em;
+  color: #fff;
+  
+ 
+  
+  
 }
 
-.App-link {
-  color: #61dafb;
+
+.item1 { grid-row: span 5;
+        transition: width 2s, height 4s;
+        animation: contractelement  0.15s forwards;
+        transform: scale(1.00);
+       
+  
+         background-color: #ff6f61;
+         
+         /* grid-column: 1 / 3; */
+ }
+
+ 
+
+ 
+.item2 { grid-row: span 7; background-color: #6b5b95; }
+.item3 { grid-row: span 10; background-color: #88b04b; }
+.item4 { grid-row: span 13; background-color: #d65076; }
+.item5 { grid-row: span 17; background-color: #ffb347; }
+.item6 { grid-row: span 20; background-color: #45b8ac; }
+.item7 { grid-row: span 22; background-color: #e94b3c; }
+.item8 { grid-row: span 25; background-color: #6c5b7b; }
+.item9 { grid-row: span 27; background-color: #00a86b; }
+.item10 { grid-row: span 30; background-color: #b565a7; } 
+
+.expanded {
+  grid-column: 1 / -1;
+  animation: expandAnimation 0.15s forwards; 
+  transform: scale(1.00); 
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes expandAnimation {
+  0%   { width: 80%;}
+  
+  100% { width: 100%; }
+}
+
+@keyframes contractelement {
+  0% {
+    width: 200%; 
   }
-  to {
-    transform: rotate(360deg);
+ 
+  100% {
+    width: 100%; 
   }
 }
+
+
+
+
